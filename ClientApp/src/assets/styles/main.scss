@@ -1,0 +1,267 @@
+@import "./font.scss";
+@import "./variables.scss";
+@import "./mixins.scss";
+// ### Body Copy
+
+// - Font size: 15px
+
+// ### Headings
+
+// - Family: [League Spartan](https://fonts.google.com/specimen/League+Spartan)
+// - Weights: 500, 700
+
+
+
+
+
+
+button:focus-visible{
+    outline: 0;
+}
+a,button{
+    cursor: pointer;
+}
+.container{
+
+    @media screen and (min-width:1441px) {
+        max-width: 1400px;
+        width: 100%;
+    }
+    max-width: auto;
+    width: 100%;
+    margin: auto;
+}
+
+
+body{
+  font-size: $var-body-size;
+  margin: 0;
+  font-family: 'League Spartan',sans-serif;
+  background-color: $var-light-bg;
+}
+
+header{
+    @media screen and (max-width :1440px){
+        background-image: url('../images/bg-header-mobile.svg');
+    }
+    background-image: url('../images/bg-header-desktop.svg');
+    background-color: $var-primary;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    height: 156px;
+}
+main{
+    margin-top: 170px;
+ 
+    @include media(screen,768.98px) using ($type){
+        margin-top: 200px;
+        padding: 0 1rem;
+    
+    }
+}
+
+.job-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include media(screen,768.98px ) using ($type){
+        gap: 3rem;
+    }
+    &-item{
+        display: flex;
+        justify-content: space-between;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        box-shadow:4px 4px 20px 0px hsl(180deg 29% 50% / 50%);
+        &:hover{
+            
+                color: $var-primary;
+                cursor: pointer;
+            
+        }
+      
+        @include media(screen,768.98px ) using ($type){
+            flex-direction: column;
+            gap: 1rem;
+            position: relative; 
+        }
+        &-left{
+            display: flex;
+            gap: 1rem;
+          
+            @include media(screen,768.98px ) using ($type){
+                padding-bottom: 1rem;
+                border-bottom: 1px solid $var-dark;
+            }
+            img{
+             
+                @include media(screen,768.98px ) using ($type){
+                    position: absolute;
+                    top: -11%;
+                    max-width: 3rem;
+                }
+            }
+            &-text{
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                &-titles{
+                    display: flex;
+                    gap: 1rem;
+                    align-items: center;
+                    h6{
+                        font-weight: $var-bold;
+                        color: $var-primary;
+                        
+                    }
+                    span{
+                        font-weight: $var-bold;
+                    }
+                }
+                &-subtitles{
+                    display: flex;
+                    gap: 1rem;
+                    align-items: center;
+                    font-size: 12px;
+                    color: $var-dark;
+                }
+            }
+        }
+        &-right{
+            &-list{
+                display: flex;
+                gap: 1rem;
+                list-style-type: none;
+           
+                @include media(screen,768.98px ) using ($type){
+                    display: inline-flex;
+                    width: 100%;
+                   flex-wrap: wrap;
+                }
+           li{
+            border-radius: 0.25rem;
+            cursor: pointer;
+            &:hover{
+                background-color: $var-primary;
+                color: white;
+            }
+           }
+            }
+        }
+    }
+}
+
+.collapse{
+    display: none;
+}
+
+//badges
+
+$colors:("success":$var-primary,"dark":$var-very-dark,"soft-success":$var-light-bg);
+$sizes:("normal":$var-medium,"bold":$var-bold);
+
+
+@each $keys,$value in $colors{
+
+    .badge{
+   
+        border-radius: 9999px;
+        padding: 0.4rem 0.5rem;
+        color: white;
+       
+        &-#{$keys}{
+            background-color: $value;
+        }
+       
+    }
+
+    .text-#{$keys}{
+        color: $value;
+    }
+    .bg-#{$keys}{
+        background-color: $value;
+    }
+    
+}
+
+@each $keys,$value in $sizes{
+    .fw-#{$keys}{
+        font-weight: $value;
+    }
+}
+
+//job-filter
+
+.search-filter{
+    
+    background-color: white;
+    padding: 0.5rem 2rem;    
+    display: flex;
+    justify-content: space-between;
+    box-shadow:4px 4px 20px 0px hsl(180deg 29% 50% / 50%);
+    border-radius: 0.25rem;
+    margin-top: -3rem;
+    margin-bottom: 1rem;
+    position: relative;
+ 
+    @include media(screen,768.98px ) using ($type){
+        margin-bottom: 3rem;
+        margin-top: -5rem;
+        padding:0.5rem 1rem;
+    }
+    ul{
+        display: flex;
+        list-style: none;
+        gap: 1rem;
+        padding: 0;
+     
+        @include media(screen,768.98px ) using ($type){
+            display: inline-flex;
+            flex-wrap: wrap;
+        }
+    }
+    li{
+        
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+   
+        background-color: $var-light-bg;
+        color: $var-primary;
+        font-weight: $var-bold;
+        border-radius: 0.25rem;
+        span{
+            padding: 0.5rem;
+        }
+     .remove-button{
+        
+        border: 0;
+        background-color: $var-primary;
+        height: 100%;
+        padding: 0 0.5rem;
+        border-top-right-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
+        &:hover{
+            background-color: $var-very-dark;
+        }
+   
+     }
+     }
+     &-clear{
+        border:0;
+        outline: 0;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 14px;
+        color: $var-primary;
+        font-weight: $var-bold;
+        font-family: 'League Spartan',sans-serif;
+        &:hover{
+            text-decoration: underline;
+        }
+     }
+}

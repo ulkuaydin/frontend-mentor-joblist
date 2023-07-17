@@ -1,0 +1,35 @@
+<div class="job-list" >
+  <div class="job-list-item" *ngFor="let job of jobs" [class]="job.featured ? 'border-start-1' : ''">
+    <div class="job-list-item-left">
+        <img src="assets/{{job.logo}}" class="" alt=""/>
+        <div class="job-list-item-left-text">
+            <div class="job-list-item-left-text-titles">
+            <h6 class="my-0 fs-14">{{job.company}}</h6>
+            <span class="badge badge-success fs-11" [class]="job.new ? 'show': 'collapse'"> NEW </span>
+            <span class="badge badge-dark fs-11" [class]="job.featured ? 'show' : 'collapse'">FEATURED!</span>
+            </div>
+            <div>
+                <p class="my-0 fw-bold">{{job.position}}</p>
+            </div>
+            <ul class="job-list-item-left-text-subtitles p-0 m-0">
+             <li class="fw-bold" style="list-style-type: none;">{{job.postedAt}}</li>
+             <li class="fw-bold">{{job.contract}}</li>
+             <li class="fw-bold">{{job.location}}</li>
+             </ul>
+        </div>
+    </div>
+    <div class="job-list-item-right">
+        <ng-container *ngIf="job.tools || job.languages">
+            <ul class="job-list-item-right-list p-0 m-0" >
+                <li class="fw-bold text-success bg-soft-success p-1 fs-13" (click)="addFilter(job.role)">{{job.role}}</li>
+                <li class="fw-bold text-success bg-soft-success p-1 fs-13" (click)="addFilter(job.level)">{{job.level}}</li>
+                <li class="fw-bold text-success bg-soft-success p-1 fs-13" *ngFor="let item of job.tools" (click)="addFilter(item)">{{item}}</li>
+                <li class="fw-bold text-success bg-soft-success p-1 fs-13" *ngFor="let item of job.languages" (click)="addFilter(item)">{{item}}</li>
+          
+               </ul>
+        </ng-container>
+
+    </div>
+    
+  </div>
+</div>

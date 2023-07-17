@@ -1,0 +1,62 @@
+@for $i from 0 through 30{
+    .fs-#{$i}{
+       font-size: #{$i}px;
+    }
+    .mb-#{$i}{
+       margin-bottom: calc($i * 0.5rem);
+    }
+    .my-#{$i}{
+       margin-top: calc($i * 0.5rem);
+       margin-bottom: calc($i * 0.5rem);
+    }
+    .ms-#{$i}{
+       margin-left: calc($i * 0.5rem);
+    }
+    .me-#{$i}{
+        margin-right: calc($i * 0.5rem);
+    }
+    .m-#{$i}{
+       margin: calc($i * 0.5rem);
+    }
+    .p-#{$i}{
+       padding: calc($i * 0.5rem);
+    }
+    .border-start-#{$i}{
+       border-left: calc($i * 0.25rem) solid $var-primary;
+    }
+   }
+
+   //badges
+
+$colors:("success":$var-primary,"dark":$var-very-dark,"soft-success":$var-light-bg);
+$sizes:("normal":$var-medium,"bold":$var-bold);
+
+
+@each $keys,$value in $colors{
+
+    .badge{
+   
+        border-radius: 9999px;
+        padding: 0.4rem 0.5rem;
+        color: white;
+       
+        &-#{$keys}{
+            background-color: $value;
+        }
+       
+    }
+
+    .text-#{$keys}{
+        color: $value;
+    }
+    .bg-#{$keys}{
+        background-color: $value;
+    }
+    
+}
+
+@each $keys,$value in $sizes{
+    .fw-#{$keys}{
+        font-weight: $value;
+    }
+}

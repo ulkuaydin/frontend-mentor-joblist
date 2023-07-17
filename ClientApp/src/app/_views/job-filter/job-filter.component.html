@@ -1,0 +1,10 @@
+<ng-container *ngIf="filters?.getValue().length > 0">
+<div class="container">
+    <div class="search-filter">
+     <ul>
+        <li *ngFor="let filter of (filters | async)"><span>{{filter}}</span><button type="button" class="remove-button" (click)="remove(filter)"><img src="assets/images/icon-remove.svg" alt="..."/></button></li>
+     </ul>
+     <button type="reset" class="search-filter-clear" (click)="clear()">Clear</button>
+    </div>
+</div>
+</ng-container>

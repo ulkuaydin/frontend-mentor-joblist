@@ -1,0 +1,7 @@
+@mixin media($types,$width){
+    @each $type in $types{
+        @media #{$type} and (max-width:$width){
+            @content($type);
+        }
+    }
+}

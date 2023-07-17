@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
+
+    
+// - Mobile: 375px
+// - Desktop: 1440px
+
+// ## Colors
+
+// ### Primary
+$var-primary:hsl(180, 29%, 50%);
+// - Desaturated Dark Cyan: hsl(180, 29%, 50%)
+$var-light-bg:hsl(180, 52%, 96%);
+$var-light-mobile: hsl(180, 31%, 95%);
+$var-dark:hsl(180, 8%, 52%);
+$var-very-dark:hsl(180, 14%, 20%);
+
+// ### Neutral
+
+// - Light Grayish Cyan (Background): hsl(180, 52%, 96%)
+// - Light Grayish Cyan (Filter Tablets): hsl(180, 31%, 95%)
+// - Dark Grayish Cyan: hsl(180, 8%, 52%)
+// - Very Dark Grayish Cyan: hsl(180, 14%, 20%)
+
+// ## Typography
+
+$var-body-size:15px;
+$var-medium:500;
+$var-bold:700;
